@@ -80,7 +80,7 @@ defmodule ChatWeb.ChatLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="flex h-screen">
+    <div class="flex h-full max-h-[90dvh] overflow-y-scroll">
       <!-- 左サイドバー：参加者リスト -->
       <div class="w-64 bg-gray-100 border-r">
         <div class="p-4">
@@ -92,11 +92,10 @@ defmodule ChatWeb.ChatLive do
           </ul>
         </div>
       </div>
-      
-    <!-- 右メインエリア -->
-      <div class="flex-1 flex flex-col">
+      <!-- 右メインエリア -->
+      <div class="flex-1 flex flex-col mx-4">
         <!-- メッセージリスト -->
-        <div class="flex-1 overflow-y-auto p-4">
+        <div class="flex-1 overflow-y-auto">
           <div id="messages" phx-update="stream">
             <%= for {id, message} <- @streams.messages do %>
               <div class="mb-4" id={id}>
@@ -109,9 +108,8 @@ defmodule ChatWeb.ChatLive do
             <% end %>
           </div>
         </div>
-        
-    <!-- 入力フォーム -->
-        <div class="border-t p-4">
+        <!-- 入力フォーム -->
+        <div class="border-t">
           <form phx-submit="send_message" class="flex">
             <input
               type="text"
