@@ -206,10 +206,19 @@ defmodule ChatWeb.UserAuth do
       conn
     else
       conn
-      |> put_flash(:error, "You must log in to access this page.")
+      |> show_error_except_home()
       |> maybe_store_return_to()
       |> redirect(to: ~p"/users/log_in")
       |> halt()
+    end
+  end
+
+  defp show_error_except_home(conn) do
+    if conn.request_path == ~p"/" do
+      conn
+    else
+      conn
+      |> put_flash(:error, "You must log in to access this page.")
     end
   end
 
