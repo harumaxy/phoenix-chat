@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :chat, Chat.Repo,
   url: System.get_env("DATABASE_URL"),
-  database: "chat",
+  database: "postgres",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
