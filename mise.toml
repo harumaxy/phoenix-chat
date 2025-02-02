@@ -1,2 +1,5 @@
 [tools]
 elixir = "1.18.0"
+
+[env]
+DATABASE_URL = "postgresql://postgres:postgres@localhost:5432/chat"

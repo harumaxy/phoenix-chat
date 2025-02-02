@@ -2,10 +2,8 @@ import Config
 
 # Configure your database
 config :chat, Chat.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "chat_dev",
+  url: System.get_env("DATABASE_URL"),
+  database: "chat",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
