@@ -82,7 +82,7 @@ defmodule ChatWeb.ChatLive do
     ~H"""
     <div class="flex h-full max-h-[90dvh] overflow-y-scroll">
       <!-- 左サイドバー：参加者リスト -->
-      <div class="w-64 bg-gray-100 border-r">
+      <div class="max-md:hidden md:block w-64 bg-gray-100 border-r">
         <div class="p-4">
           <h2 class="font-bold mb-4">参加者</h2>
           <ul>
